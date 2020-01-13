@@ -10,9 +10,9 @@ script:
 - cmake --build . --target Otus_1
 - ./Otus_1
 - ./test_version
-- cp ./Otus_1 ./HelloWorld_0.0.$TRAVIS_BUILD_NUMBER 
+- cp ./Otus_1 ./HelloWorld.deb 
 deploy:
  provider: script
  skip_cleanup: true
  script:
-  - curl -T ./HelloWorld_0.0.$TRAVIS_BUILD_NUMBER  -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/Otus_1;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T HelloWorld.deb  -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/Otus_1;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
