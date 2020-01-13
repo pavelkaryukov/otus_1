@@ -1,6 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-project ("Otus_1" VERSION 0.0.0.$ENV{TRAVIS_BUILD_NUMBER}) 
+project ("Otus_1" VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER}) 
 
 configure_file (configure_version.h.in
 	${CMAKE_CURRENT_BINARY_DIR}/configure_version.h
