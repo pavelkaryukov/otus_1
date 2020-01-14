@@ -46,6 +46,22 @@ target_link_libraries(test_version
     ${Boost_LIBRARIES}
 )
 
+if (MSVC)
+    target_compile_options(Otus_1 PRIVATE
+        /W4
+    )
+    target_compile_options(test_version PRIVATE
+        /W4
+    )
+else ()
+    target_compile_options(Otus_1 PRIVATE
+        -Wall -Wextra -pedantic -Werror
+    )
+    target_compile_options(test_version PRIVATE
+        -Wall -Wextra -pedantic -Werror
+    )
+endif()
+
 if (NOT MSVC)
    set_target_properties( test_version PROPERTIES
 		COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
