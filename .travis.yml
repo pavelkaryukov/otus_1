@@ -14,4 +14,4 @@ deploy:
  provider: script
  skip_cleanup: true																			 
  script:
- - curl -T Otus_1 -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/Otus_1;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+ - curl -T Otus_1 -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/Otus_1;deb_distribution=trusty;override=true;deb_component=main;deb_architecture=amd64;publish=1"
