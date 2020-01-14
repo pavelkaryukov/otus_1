@@ -11,8 +11,10 @@ script:
 - ./Otus_1
 - ./test_version
 - cp ./Otus_1 ./HelloWorld.deb 
+- ./HelloWorld.deb
+- ls
 deploy:
  provider: script
  skip_cleanup: true
  script:
-  - curl -T HelloWorld.deb  -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/Otus_1;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T HelloWorld.deb -upavelkaryukov:$BINTRAY_API_KEY "https://api.bintray.com/content/karyukov/otus/otus_1/$TRAVIS_BUILD_NUMBER/./HelloWorld.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
