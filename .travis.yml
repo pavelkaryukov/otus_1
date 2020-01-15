@@ -6,10 +6,10 @@ before_script:
 script:
 - cmake .
 - cmake --build .
-- cmake --build . --target test_version
+- cmake --build . --target boost_test_version
 - cmake --build . --target Otus_1
 - ./Otus_1
-- ./test_version
+- ./boost_test_version
 deploy:
  provider: script
  skip_cleanup: true																			 
