@@ -1,15 +1,22 @@
 language: cpp
 before_script:
 - sudo apt-get install libboost-test-dev -y
+- sudo apt-get install libgtest-dev
+- cd /usr/src/gtest
+- sudo cmake CMakeLists.txt
+- sudo make
+- sudo cp *.a /usr/lib # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
 - cmake .
 - cmake --build .
-- cmake --build . --target boost_test_version
-- cmake --build . --target Otus_1
+#- cmake --build . --target gtest_test_version
+#- cmake --build . --target boost_test_version
+#- cmake --build . --target Otus_1
 - ./Otus_1
 - ./boost_test_version
+- ./gtest_test_version
 - cmake --build . --target package
 - ls
 deploy:
