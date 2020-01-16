@@ -14,6 +14,7 @@ script:
 - pwd
 - cmake .
 - cmake --build .
+- make test
 #- cmake --build . --target gtest_test_version
 #- cmake --build . --target boost_test_version
 #- cmake --build . --target Otus_1
