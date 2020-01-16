@@ -2,14 +2,15 @@ language: cpp
 before_script:
 - sudo apt-get install libboost-test-dev -y
 - sudo apt-get install libgtest-dev
-#- sudo apt-get install cmake # install cmake
-#- cd /usr/src/gtest
-#- sudo cmake CMakeLists.txt
-#- sudo make
-#- sudo cp *.a /usr/lib # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
+- sudo apt-get install cmake # install cmake
+- cd /usr/src/gtest
+- sudo cmake CMakeLists.txt
+- sudo make
+- sudo cp *.a /usr/lib # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
+- cd /home/travis/build/pavelkaryukov/otus_1
 - pwd
 - cmake .
 - cmake --build .
