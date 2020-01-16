@@ -10,10 +10,10 @@ project ("Otus_1" VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 configure_file (configure_version.h.in
 	${CMAKE_CURRENT_BINARY_DIR}/configure_version.h
 )
-set (MAIN_SRC "otus_1.cpp" )
+
 set (VERSION_SRC "version.cpp" "version.h" "configure_version.h")
 
-add_executable(Otus_1 ${MAIN_SRC} ${VERSION_SRC}) 
+add_executable(Otus_1 "otus_1.cpp" ${VERSION_SRC}) 
 
 set_target_properties (
 	Otus_1 PROPERTIES 
@@ -66,7 +66,6 @@ set_target_properties (
 	CXX_STANDARD 14
 	CXX_STANDARD_REQUIRED ON	
 )
-
 
 target_link_libraries(gtest_test_version ${GTEST_BOTH_LIBRARIES})
 if (NOT MSVC)
