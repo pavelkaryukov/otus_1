@@ -2,6 +2,7 @@ language: cpp
 before_script:
 - sudo apt-get install libboost-test-dev -y
 - sudo apt-get install libgtest-dev
+- sudo apt-get install cmake # install cmake
 - cd /usr/src/gtest
 - sudo cmake CMakeLists.txt
 - sudo make
