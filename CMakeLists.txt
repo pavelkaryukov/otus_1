@@ -68,7 +68,10 @@ set_target_properties (
 )
 
 
-target_link_libraries(gtest_test_version ${GTEST_BOTH_LIBRARIES} )
+target_link_libraries(gtest_test_version ${GTEST_BOTH_LIBRARIES})
+if (NOT MSVC)
+	target_link_libraries(gtest_test_version pthread)
+endif()
 
 target_include_directories(
 	gtest_test_version 
